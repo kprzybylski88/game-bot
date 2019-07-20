@@ -3,6 +3,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es2016",
+    "outFile": "../jsOut/index.js",
     "lib": [
       "es6",
       "dom"
