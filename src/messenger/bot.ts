@@ -1,22 +1,22 @@
-import {Client, Message} from 'discord.js';
-import {Subject} from 'rxjs';
+import {Client, Message, User} from 'discord.js';
+import {Subject, BehaviorSubject} from 'rxjs';
 import * as config from '../../config.json'
 export {messenger};
 
-interface IMessage {
+export interface IMessage {
     author: string;
     content: string;
     isDM: boolean;
 }
 
 class Bot  {
-    public readonly messageBus$ = new Subject<IMessage>();
+    public readonly messageBus$ = new BehaviorSubject<IMessage>(null);
     private readonly client: Client;
     constructor(private readonly token: string) {
         this.client = new Client();
         this.initialize();
     }
-    
+
     private initialize() {
         this.client.login(this.token).then(() => {
                 console.log('successfully logged in');
@@ -33,6 +33,11 @@ class Bot  {
             }
         }) 
         
+    }
+    public respond (response: string, userId: string) {
+        this.client.fetchUser(userId).then((user: User) => {
+            user.send(response);
+        })
     }
 
 }

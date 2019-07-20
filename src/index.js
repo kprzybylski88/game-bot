@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const bot_1 = require("./messenger/bot");
-bot_1.messenger;
+const message_processor_1 = require("./messenger/message-processor");
+message_processor_1.mp;
 //# sourceMappingURL=index.js.map

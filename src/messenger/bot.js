@@ -6,7 +6,7 @@ const config = require("../../config.json");
 class Bot {
     constructor(token) {
         this.token = token;
-        this.messageBus$ = new rxjs_1.Subject();
+        this.messageBus$ = new rxjs_1.BehaviorSubject(null);
         this.client = new discord_js_1.Client();
         this.initialize();
     }
@@ -22,6 +22,11 @@ class Bot {
                 console.log(message);
                 this.messageBus$.next({ author: message.author.id, content: message.content, isDM: message.channel.type === 'dm' });
             }
+        });
+    }
+    respond(response, userId) {
+        this.client.fetchUser(userId).then((user) => {
+            user.send(response);
         });
     }
 }

@@ -1,7 +1,2 @@
-import {messenger} from './messenger/bot'
-import * as config from '../config.json';
-
-
-
-
-messenger;
+import {mp} from './messenger/message-processor'
+mp;
