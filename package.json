@@ -1,0 +1,22 @@
+{
+  "name": "game-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "watch": "tsc -p tsconfig.json -w",
+    "test": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^12.6.8",
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.0.0",
+    "inversify": "^5.0.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.2",
+    "typescript": "^3.5.3"
+  }
+}
